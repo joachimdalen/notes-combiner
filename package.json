@@ -1,0 +1,23 @@
+{
+  "name": "notes-combiner",
+  "version": "0.0.1",
+  "description": "Combine markdown notes in directory to single PDF file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joachimdalen/notes-combiner.git"
+  },
+  "author": "Joachim Dalen <joachim@dalenapps.no> (https://joachimdalen.no)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joachimdalen/notes-combiner/issues"
+  },
+  "homepage": "https://github.com/joachimdalen/notes-combiner#readme",
+  "dependencies": {
+    "markdown-pdf": "^9.0.0",
+    "through": "^2.3.8"
+  }
+}
