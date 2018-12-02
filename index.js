@@ -62,7 +62,7 @@ function getFilePaths() {
  * Generate PDF file.
  */
 markdownpdf(generatorOptions)
-  .concat.from(getFilePaths)
+  .concat.from(getFilePaths())
   .to(outputPath, function() {
     console.log("Created output file", outputPath);
   });
