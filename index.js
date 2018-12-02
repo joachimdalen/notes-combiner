@@ -1,5 +1,6 @@
 const markdownpdf = require("markdown-pdf");
 const through = require("through");
+const remkatex = require("remarkable-katex");
 const fs = require("fs");
 const path = require("path");
 
@@ -28,7 +29,8 @@ const options = {
   preProcessMd: preProcessMd,
   cssPath: "./styles.css",
   remarkable: {
-    html: true
+    html: true,
+    plugins: [remkatex]
   }
 };
 
