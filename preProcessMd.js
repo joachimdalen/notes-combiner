@@ -1,3 +1,4 @@
+const through = require("through");
 /**
  * Process markdown before it is rendered.
  */

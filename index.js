@@ -1,5 +1,4 @@
 const markdownpdf = require("markdown-pdf");
-const through = require("through");
 const fs = require("fs");
 const path = require("path");
 
