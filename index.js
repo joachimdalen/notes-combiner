@@ -1,31 +1,7 @@
 const markdownpdf = require("markdown-pdf");
 const through = require("through");
-const remkatex = require("remarkable-katex");
 const fs = require("fs");
 const path = require("path");
-
-/**
- * Full path for output PDF file.
- */
-const outputPath = "";
-
-/**
- * Folder path for markdown files.
- */
-const markdownFilesDir = "";
-
-/**
- * Options passed to markdown-pdf.
- */
-const generatorOptions = {
-  paperFormat: "A4",
-  preProcessMd: preProcessMd,
-  cssPath: "./styles.css",
-  remarkable: {
-    html: true,
-    plugins: [remkatex]
-  }
-};
 
 /**
  * Check if a given file with the given filepath matches a markdown file.
@@ -34,16 +10,6 @@ const generatorOptions = {
 function extension(element) {
   var extName = path.extname(element);
   return extName === ".md";
-}
-
-/**
- * Process markdown before it is rendered.
- */
-function preProcessMd() {
-  return through(function(data) {
-    pageBreak = '\n\n <div style="page-break-after:always"></div> \n\n';
-    this.queue(data + pageBreak);
-  });
 }
 
 /**
