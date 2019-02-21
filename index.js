@@ -1,6 +1,7 @@
 const markdownpdf = require("markdown-pdf");
 const fs = require("fs");
 const path = require("path");
+const config = require('./config');
 
 /**
  * Check if a given file with the given filepath matches a markdown file.
@@ -16,18 +17,18 @@ function extension(element) {
  */
 function getFilePaths() {
   return fs
-    .readdirSync(markdownFilesDir)
+    .readdirSync(config.markdownFilesDir)
     .filter(extension)
     .map(f => {
-      return path.join(markdownFilesDir, f);
+      return path.join(config.markdownFilesDir, f);
     });
 }
 
 /**
  * Generate PDF file.
  */
-markdownpdf(generatorOptions)
+markdownpdf(config.generatorOptions)
   .concat.from(getFilePaths())
-  .to(outputPath, function() {
-    console.log("Created output file", outputPath);
+  .to(config.outputPath, function () {
+    console.log("Created output file", config.outputPath);
   });
