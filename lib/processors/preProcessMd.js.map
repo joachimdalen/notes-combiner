@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "sources": [
+    "src/processors/preProcessMd.coffee"
+  ],
+  "names": [],
+  "mappings": ";;;AAAA,CAAA,YAAA;AAAA,MAAA,YAAA,EAAA,OAAA;AAAA,EAAA,OAAA,GAAU,OAAA,CAAV,SAAU,CAAV,CAAA,C;;AAEA,EAAA,MAAM,CAAN,OAAA,GAAiB,YAAA,GAAe,wBAAA;WAC5B,OAAA,CAAQ,UAAA,IAAA,EAAA;AACJ,UAAA,SAAA;AAAA,MAAA,SAAA,GAAY,uDAAZ;aACA,KAAA,KAAA,CAAW,IAAA,GAAX,SAAA,C;AAFJ,KAAA,C;AAD4B,GAAhC;CAFA,E,IAAA",
+  "sourcesContent": [
+    "through = require(\"through\")\n# Process markdown before it is rendered.\nmodule.exports = preProcessMd = () ->\n    through((data) ->\n        pageBreak = '\\n\\n <div style=\"page-break-after:always\"></div> \\n\\n'\n        this.queue(data + pageBreak)\n    )\n"
+  ],
+  "sourceRoot": "../.."
+}
