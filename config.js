@@ -1,5 +1,5 @@
 const remkatex = require("remarkable-katex");
-const preProcessMd = require("./preProcessMd");
+const preProcessMd = require("./processors/preProcessMd");
 module.exports = {
     /**
      * Folder path for markdown files.
