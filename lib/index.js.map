@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "sources": [
+    "src/index.coffee"
+  ],
+  "names": [],
+  "mappings": ";;;AAAA,CAAA,YAAA;AAAA,MAAA,MAAA,EAAA,SAAA,EAAA,EAAA,EAAA,YAAA,EAAA,WAAA,EAAA,IAAA;AAAA,EAAA,WAAA,GAAc,OAAA,CAAA,cAAA,CAAd;AACA,EAAA,EAAA,GAAK,OAAA,CAAA,IAAA,CAAL;AACA,EAAA,IAAA,GAAO,OAAA,CAAA,MAAA,CAAP;AACA,EAAA,MAAA,GAAS,OAAA,CAHT,UAGS,CAAT,CAHA,C;;AAMA,EAAA,SAAA,GAAY,mBAAA,OAAA,EAAA;AACV,QAAA,OAAA;AAAA,IAAA,OAAA,GAAU,IAAI,CAAJ,OAAA,CAAA,OAAA,CAAV;WACA,OAAA,KAAW,K;AARb,GAMA,CANA,C;;;AAYA,EAAA,YAAA,GAAe,wBAAA;WACb,EAAE,CAAF,WAAA,CAAe,MAAM,CAArB,gBAAA,EAAA,MAAA,CAAA,SAAA,EAAA,GAAA,CACuB,UAAA,CAAA,EAAA;aAAO,IAAI,CAAJ,IAAA,CAAU,MAAM,CAAhB,gBAAA,EAAA,CAAA,C;AAD9B,KAAA,C;AAbF,GAYA,CAZA,C;;;AAiBA,EAAA,WAAA,CAAY,MAAM,CAAlB,gBAAA,CAAA,CACG,MADH,CAAA,IAAA,CACe,YADf,EAAA,EAAA,EAAA,CAEM,MAAM,CAFZ,UAAA,EAEyB,YAAA;WAAM,OAAO,CAAP,GAAA,CAAA,qBAAA,EAAmC,MAAM,CAAzC,UAAA,C;AAF/B,GAAA;CAjBA,E,IAAA",
+  "sourcesContent": [
+    "markdownpdf = require(\"markdown-pdf\")\nfs = require(\"fs\")\npath = require(\"path\")\nconfig = require('./config')\n\n# Check if a given file with the given filepath matches a markdown file.\nextension = (element) ->\n  extName = path.extname(element)\n  extName is \".md\"\n\n\n# Get all .md files from the given path.\ngetFilePaths = () ->\n  fs.readdirSync(config.markdownFilesDir)\n  .filter(extension).map((f) -> path.join(config.markdownFilesDir, f))\n\n# Generate PDF file.\nmarkdownpdf(config.generatorOptions)\n  .concat.from(getFilePaths())\n  .to(config.outputPath, () -> console.log(\"Created output file\", config.outputPath))"
+  ],
+  "sourceRoot": ".."
+}
