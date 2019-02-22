@@ -1,7 +1,7 @@
-markdownpdf = require("markdown-pdf")
-fs = require("fs")
-path = require("path")
-config = require('./config')
+markdownpdf = require "markdown-pdf"
+fs = require "fs"
+path = require "path"
+config = require './config'
 
 # Check if a given file with the given filepath matches a markdown file.
 extension = (element) ->

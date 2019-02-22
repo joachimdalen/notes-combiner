@@ -1,4 +1,4 @@
-through = require("through")
+through = require "through"
 # Process markdown before it is rendered.
 module.exports = preProcessMd = () ->
     through((data) ->

@@ -1,5 +1,5 @@
-remkatex = require("remarkable-katex")
-preProcessMd = require("./processors/preProcessMd")
+remkatex = require "remarkable-katex"
+preProcessMd = require "./processors/preProcessMd"
 module.exports = {
     # Folder path for markdown files.
     markdownFilesDir: "",
